@@ -12,14 +12,22 @@ Website: https://www.manning.com/books/learn-powershell-in-a-month-of-lunches
 
 Repository Structure
 
+Repository Structure
+
 /
-Lunch01/             - Chapter 1 notes, scripts, exercises
-Lunch02/
-...
-Lunch30/
-.gitignore           - Prevents committing temp files and system/editor clutter
-README.txt           - This file (plain text version)
-summary.md           - High-level notes, key takeaways, glossary, and resources
+Lunches/
+  Lunch01/         - Chapter 1 scripts and exercises
+  Lunch02/
+  ...
+  Lunch30/
+Notes/
+  Notes01.md       - Personal notes for Lunch 1
+  Notes02.md
+  ...
+  Notes30.md
+.gitignore         - Prevents committing temp files and system/editor clutter
+README.txt         - This file (plain text version)
+summary.md         - High-level notes, key takeaways, glossary, and resources
 
 Each folder includes:
 - notes.md: My personal notes and explanations
