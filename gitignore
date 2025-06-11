@@ -16,3 +16,13 @@ env/
 
 # Windows system files
 Thumbs.db
+
+# PowerShell history
+ConsoleHost_history.txt
+
+# Temporary or backup files
+*.tmp
+*.bak
+
+# Log or debugging output
+*.log
