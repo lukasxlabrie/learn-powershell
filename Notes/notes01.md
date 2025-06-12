@@ -1,5 +1,17 @@
-When typing in Powershell you can tab to get a list of options. For example type Get-P and hit tab a couple of times
-When using VS you get inetllisense which is faster and easier to naviagate but serves a similar purpose.
+PowerShell Shortcuts and Tips
 
-Shortcuts and Tips
-$PSVersionTable - Gives you the details surrounding the versioj of ps you're using 
+Tab completion: Type part of a command like Get-P and press Tab to cycle through options
+Similar to IntelliSense in Visual Studio, but simpler
+
+Use # to write comments
+Example: # This is a comment
+
+\$PSVersionTable shows the version of PowerShell you're using
+
+Symbol reference:
+'  single quote
+\`  backtick (used to escape characters)
+() parentheses
+{} curly brackets
+\[] square brackets
+<> angle brackets (used as placeholders, not actual syntax)
