@@ -29,4 +29,16 @@ Parameter Sets
 
 Common Parameters
 
-PArameter Syntax for Get-Item help:MAstering the help system is the key to becoming a powershell expert
+PArameter Syntax for Get-Item help:
+
+Expalin mutual exclusions
+
+Common Parameteres
+
+Optional PArameters
+
+Mandatory Parameters
+
+Positional Parameters
+
+MAstering the help system is the key to becoming a powershell expert
