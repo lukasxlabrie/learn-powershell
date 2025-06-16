@@ -1,44 +1,52 @@
-MAstering the help system is the key to becoming a powershell expert
+Mastering the help system is the key to becoming a PowerShell expert
+The help system is vital to building PowerShell skills
+It helps identify which commands to use based on the situation
+Shows how to properly run commands, which helps when troubleshooting errors
+Explains how commands relate to each other
 
-the Help system system is the vital to honing powershell skills
-You can use this to idetnify what commands you can use in context to the scenario
-Will show you to run the command properly which can help when getting errors as the script is ran
-Displays how each commnad connects to other commands
+Going forward, you’ll need to use the help system to complete exercises
+Always read the help section for each command to get used to it
+Also use help to learn the correct syntax
 
-Going forward using the help system will be needd to complete exercies, should read the help section for each command to get used to doing this
+If local help is not installed, update it using:
+`Update-Help`
+Run this about once a month to stay current
+To save a local copy of the help files:
+`Save-Help`
 
-Also use this for the syntax
+To search help:
+`help <search term>`
+Use Tab to autofill, press Tab twice to browse more options
+Use Q to quit out of help view
 
-You ddo not have local help installed but an updated version can be downaleded from the internet using the command line AKA updatable help:
-Open powershell and run Update-help
-Should update help every  month or so, which is open source but is web- based to save a local copy use save-help
+Note: `help` is a function, not a cmdlet
+`Get-Help` is the actual cmdlet
 
-help *name of search goes in here*
+"Commands" is a general term that includes cmdlets, functions, aliases, and scripts
+Cmdlets are specific to PowerShell
+Functions are reusable code blocks
+Objects are the results returned by commands
+Events relate to system or application triggers
 
-use tab to autofill, tab twice to go through more possibilities
-use q to exit help
+Parameter Sets:
+Used to define different ways a cmdlet can be used
+Each set includes specific parameters that can't be used together
 
-FYI Help ss a keyword is a function and not cmdlet where as get help is a cmdlet
+Common Parameters:
+Available with most cmdlets (e.g., -Verbose, -Debug)
 
-Commands is an umbrealla term that ecompasses functionality features such as cmdlet, function
-cmdlt is specific to powershell
-Event is
-Object is
+Optional Parameters:
+Do not need to be specified, shown in help without brackets
 
-Parameter Sets
+Mandatory Parameters:
+Must be included, shown in help inside brackets: `[]`
 
-Common Parameters
+Positional Parameters:
+Do not need to be named if placed in the correct order
+Use full parameter names until you're confident
 
-PArameter Syntax for Get-Item help:
+To find positional parameters:
+Use `Get-Help <cmdlet> -Full` and look at the POSITION field
 
-Expalin mutual exclusions
-
-Common Parameteres
-
-Optional PArameters
-
-Mandatory Parameters
-
-Positional Parameters
-
-MAstering the help system is the key to becoming a powershell expert
+Parameter Values:
+Show accepted input types for each parameter
