@@ -50,3 +50,15 @@ Use `Get-Help <cmdlet> -Full` and look at the POSITION field
 
 Parameter Values:
 Show accepted input types for each parameter
+
+Switches do not require an input value
+
+Use quotations to separate items:
+"thing 1" "thing 2"
+Not: "thing 1 thing 2"
+
+To find command examples, use:
+Get-Help <command> -Examples
+or
+Get-Item -Examples
+
