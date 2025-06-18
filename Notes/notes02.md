@@ -103,3 +103,27 @@ Breakdown:
 `-Force` → Switch (includes hidden/system files, no input value required)
 
 Use `Get-Help Get-ChildItem -Full` to see all parameter sets, positions, and examples
+---
+
+**Using Get Command**
+
+
+Get-Command (alias: gcm) lists all available commands in your session
+Use it to discover what cmdlets, functions, aliases, workflows, or scripts are available
+
+Examples:
+Get-Command – lists all commands
+Get-Command -Name Get-* – lists all commands starting with “Get-”
+Get-Command -Noun Item – shows all commands with the noun “Item”
+Get-Command -Module Microsoft.PowerShell.Management – shows commands from a specific module
+Get-Command Get-Process – shows the full definition and location of the command
+
+Use Get-Command when:
+
+You’re not sure what command to use
+
+You want to browse available functionality
+
+You need to confirm the source or type of a command
+
+You want to find related commands by verb or noun
