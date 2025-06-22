@@ -25,6 +25,11 @@ Notes/
   Notes02.md
   ...
   Notes30.md
+Scripts/
+  Scriptname/
+    README
+    PS1
+  ...
 .gitignore         - Prevents committing temp files and system/editor clutter
 README.txt         - This file (plain text version)
 summary.md         - High-level notes, key takeaways, glossary, and resources
