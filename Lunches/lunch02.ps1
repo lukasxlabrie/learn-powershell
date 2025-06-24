@@ -45,7 +45,9 @@ Enter-PSHostProcess
 
 # Change character width parameter on the out-file cmdlet
 
+
 # Prevent overwritting while using the outfile cmdlet
+-NoClobber
 
 # Shortest way to get commands with process in the name
 help*proc*
