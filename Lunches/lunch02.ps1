@@ -7,6 +7,7 @@ Update-Help
 ConvertTo-Html
 
 # cmdlet that redirects output into a file
+Out-CurrentFile  
 
 # cmdlets for working with processess
 
