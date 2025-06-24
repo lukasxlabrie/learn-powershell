@@ -46,7 +46,7 @@ Get-Process
 # Prevent overwritting while using the outfile cmdlet
 
 # Shortest way to get commands with process in the name
-
+help*proc*
 # Number of gerneic object cmdlets
 
 # Find help about arrays
