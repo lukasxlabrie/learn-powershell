@@ -4,6 +4,7 @@
 Update-Help
 
 # cmdlet that converts cmdlet output into html
+ConvertTo-Html
 
 # cmdlet that redirects output into a file
 
