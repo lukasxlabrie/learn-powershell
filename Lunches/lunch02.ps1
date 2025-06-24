@@ -41,6 +41,7 @@ Get-Process
 Get-PSHostProcessInfo  
 
 # Run a command on a remote host
+Enter-PSHostProcess     
 
 # Change character width parameter on the out-file cmdlet
 
