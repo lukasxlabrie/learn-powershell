@@ -24,6 +24,12 @@ Wait-Process                      Cmdlet    Microsoft.PowerShell.Man… Waits fo
 Set-PSBreakpoint 
 
 # cmdlets to create, modify, export and import aliases
+Export-Alias                      Cmdlet    Microsoft.PowerShell.Uti… Exports information about currently defined aliases to a file.
+Get-Alias                         Cmdlet    Microsoft.PowerShell.Uti… Gets the aliases for the current session.
+Import-Alias                      Cmdlet    Microsoft.PowerShell.Uti… Imports an alias list from a file.
+New-Alias                         Cmdlet    Microsoft.PowerShell.Uti… Creates a new alias.
+Remove-Alias                      Cmdlet    Microsoft.PowerShell.Uti… Remove an alias from the current session.
+Set-Alias                         Cmdlet    Microsoft.PowerShell.Uti… Creates or changes an alias for a cmdlet or other command in the current PowerShell
 
 # How to keep a transcript of everything typed into the shell and save as text
 
