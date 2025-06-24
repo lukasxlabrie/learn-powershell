@@ -32,6 +32,7 @@ Remove-Alias                      Cmdlet    Microsoft.PowerShell.Uti… Remove a
 Set-Alias                         Cmdlet    Microsoft.PowerShell.Uti… Creates or changes an alias for a cmdlet or other command in the current PowerShell
 
 # How to keep a transcript of everything typed into the shell and save as text
+Start-Transcript    
 
 # How to get process by the name of process
 
