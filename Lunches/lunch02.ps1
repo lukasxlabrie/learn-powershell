@@ -44,7 +44,12 @@ Get-PSHostProcessInfo
 Enter-PSHostProcess     
 
 # Change character width parameter on the out-file cmdlet
-
+    
+-Width <System.Int32>
+Specifies the maximum number of characters in each line of output. Any additional characters are truncated, not wrapped. If this parameter 
+isn't used, the width is determined by the characteristics of the host. The default for the PowerShell console is 80 characters. If you want 
+to control the width for all invocations of `Out-File` as well as the redirection operators (`>` and `>>`), set 
+`$PSDefaultParameterValues['Out-File:Width'] = 2000` before using `Out-File`.
 
 # Prevent overwritting while using the outfile cmdlet
 -NoClobber
