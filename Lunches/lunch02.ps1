@@ -35,6 +35,7 @@ Set-Alias                         Cmdlet    Microsoft.PowerShell.Uti… Creates 
 Start-Transcript    
 
 # How to get process by the name of process
+Get-Process  
 
 # How to have Get-Process tell you who started the process
 
