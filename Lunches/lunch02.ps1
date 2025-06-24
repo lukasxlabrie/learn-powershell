@@ -21,6 +21,7 @@ Stop-Process                      Cmdlet    Microsoft.PowerShell.Man… Stops on
 Wait-Process                      Cmdlet    Microsoft.PowerShell.Man… Waits for the processes to be stopped before accepting more input.
 
 # cmldet used to set break point
+Set-PSBreakpoint 
 
 # cmdlets to create, modify, export and import aliases
 
