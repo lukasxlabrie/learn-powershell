@@ -38,6 +38,7 @@ Start-Transcript
 Get-Process  
 
 # How to have Get-Process tell you who started the process
+Get-PSHostProcessInfo  
 
 # Run a command on a remote host
 
