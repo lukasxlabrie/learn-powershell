@@ -40,3 +40,5 @@ REMINDER: intended to protect only uninformed users from unintentionally running
 anonymous scripts.
 
 The execution policy isn’t intended to stop an informed user
+
+Poweshell in short is running commands until you get them right, and then paste them into a text file and call it a script.
