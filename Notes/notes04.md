@@ -71,3 +71,11 @@ Command is the generic term that we use to refer to any or all of the preceding
 terms.
 
 az prefix for Azure commands
+
+Alias's are used as shortcuts to avoid typing long commands AKA nickname
+
+You can actaully use shortcuts too though which are trricky for noobs:
+Truncate parameter names
+Use parameter alias
+Use posiotnal parameters
+
