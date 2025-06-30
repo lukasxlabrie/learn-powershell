@@ -69,3 +69,5 @@ such as ping and ipconfig.
 
 Command is the generic term that we use to refer to any or all of the preceding
 terms.
+
+az prefix for Azure commands
