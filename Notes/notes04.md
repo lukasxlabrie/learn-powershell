@@ -1,81 +1,72 @@
-Lunch 04
+## 🛡️ PowerShell Execution Policy & Script Basics
 
-Powershell does not add any additional security layers, it is intended to allow the current user to use thier current permissions to operate
-It is designed to prevent the unintnetional running of scripts though 
+### 🔐 Security Model
+- PowerShell **does not** provide additional security layers.
+- It uses the **current user’s privileges** to run commands.
+- Designed to **prevent unintentional execution** of scripts—not to block skilled users.
 
-Execution polify varies by device/OS, default is usually RemotedSigned
+### ⚙️ Execution Policy (EP)
+- **Default varies** by OS/device. Common default: `RemoteSigned`.
+- EP determines how scripts are validated before running.
 
-Can change by:
-running Set-ExecutionPolicy, changes setting in HKEY
-GPO
-Manually running an .exe to overwrite the GPO and curretn setting
+#### 🔄 How to Change It
+- Run `Set-ExecutionPolicy` (updates registry key under `HKLM` or `HKCU`).
+- Apply via **Group Policy (GPO)**.
+- Execute a custom `.exe` to override GPO + registry settings.
 
-Policy settings are as follows:
+### 📜 Policy Types
 
-Restricted—This is the default, and scripts aren’t executed. The only exceptions
-are a few Microsoft-supplied scripts that set up PowerShell’s default configuration
-settings. Those scripts carry a Microsoft digital signature and won’t
-execute if modified.
+| Policy        | Description                                                                 |
+|---------------|-----------------------------------------------------------------------------|
+| **Restricted**   | Default. No script execution except Microsoft-signed config scripts.         |
+| **AllSigned**    | Only scripts signed with trusted CA certs will run.                          |
+| **RemoteSigned** | Local scripts run freely. Remote scripts must be signed (Internet, UNC path).|
+| **Unrestricted** | All scripts run; user sees a security warning for remote scripts.            |
+| **Bypass**       | No restrictions. Used by applications embedding PowerShell. Trust is external.|
 
-AllSigned—PowerShell will execute any script that has been digitally signed by
-using a code-signing certificate issued by a trusted certification authority (CA).
+> 📌 Execution Policy is a **user safeguard**, not a security boundary.
 
-RemoteSigned—PowerShell will execute any local script and will execute
-remote scripts if they’ve been digitally signed by using a code-signing certificate
-issued by a trusted CA. Remote scripts are those that exist on a remote computer,
-usually accessed by a Universal Naming Convention (UNC) path. Scripts
-marked as having come from the internet are also considered remote. Edge,
-Chrome, Firefox, and Outlook all mark downloads as having come from the
-internet.
+---
 
-Unrestricted—All scripts will run.
+## 🧠 How PowerShell Is Used
+_"Write commands. Test. Refine. Paste into a text file. Voilà—script!"_
 
-Bypass—This special setting is intended for use by application developers who
-are embedding PowerShell within their application. This setting bypasses the
-configured execution policy and should be used only when the hosting application
-is providing its own layer of script security. You’re essentially telling Power-
-Shell, “Don’t worry. I have security covered.”
+---
 
-REMINDER: intended to protect only uninformed users from unintentionally running
-anonymous scripts.
-
-The execution policy isn’t intended to stop an informed user
-
-Poweshell in short is running commands until you get them right, and then paste them into a text file and call it a script.
-
-SYNTAX EXAMPLE:
+### 🧬 Syntax Example
+```powershell
 Get-Command -Verb Get -Module PSReadLine,PowerShellGet -Syntax
+```
 
-- Get-Command: Cmdlet in Verb-Noun format.
-- -Verb Get: Parameter with a simple value (no quotes needed).
-- -Module PSReadLine,PowerShellGet: Comma-separated list of values.
-- -Syntax: Switch parameter—no value required.
-- Mandatory spaces separate cmdlet and parameters.
-- Parameter names start with - and are not case sensitive.
+- `Get-Command`: Cmdlet in Verb-Noun format.
+- `-Verb Get`: Simple parameter (no quotes).
+- `-Module`: Takes multiple values (comma-separated).
+- `-Syntax`: Switch parameter (no value).
+- Mandatory spaces between cmdlet and parameters.
+- Parameters start with `-` and are **not case sensitive**.
 
-Key Words:
+---
 
-A cmdlet is a native PowerShell command-line utility. These exist only inside
-PowerShell and are written in a .NET Core language such as C#. The word
-cmdlet is unique to PowerShell, so if you add it to your search keywords on your
-favorite search engine, the results you get back will be mainly PowerShell
-related. The word is pronounced command-let.
+## 🧩 PowerShell Command Components
 
-A function can be similar to a cmdlet, but rather than being written in a .NET
-language, functions are written in PowerShell’s own scripting language.
+| Term         | Description                                                                 |
+|--------------|-----------------------------------------------------------------------------|
+| **Cmdlet**       | Native PowerShell command (e.g., `Get-Command`). .NET-based.                |
+| **Function**     | Scripted command written in PowerShell itself.                              |
+| **Application**  | External executable like `ping`, `ipconfig`.                                |
+| **Command**      | Generic term covering all of the above.                                     |
 
-An application is any kind of external executable, including command-line utilities
-such as ping and ipconfig.
+### 🔑 Cmdlet Notes
+- Unique to PowerShell. Search for "cmdlet" to filter relevant info.
+- Pronounced: _command-let_
 
-Command is the generic term that we use to refer to any or all of the preceding
-terms.
+---
 
-az prefix for Azure commands
+### 🚀 Shortcuts (Power User Tricks)
+- **Aliases**: Nicknames for commands (e.g., `gcm` for `Get-Command`).
+- **Truncated parameters**: `-Ver` works for `-Verb` if unambiguous.
+- **Positional parameters**: Skip names entirely if order is correct.
+- **Parameter aliases**: Use known alternatives.
 
-Alias's are used as shortcuts to avoid typing long commands AKA nickname
-
-You can actaully use shortcuts too though which are trricky for noobs:
-Truncate parameter names
-Use parameter alias
-Use posiotnal parameters
+---
 
