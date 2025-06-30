@@ -52,3 +52,20 @@ Get-Command -Verb Get -Module PSReadLine,PowerShellGet -Syntax
 - -Syntax: Switch parameter—no value required.
 - Mandatory spaces separate cmdlet and parameters.
 - Parameter names start with - and are not case sensitive.
+
+Key Words:
+
+A cmdlet is a native PowerShell command-line utility. These exist only inside
+PowerShell and are written in a .NET Core language such as C#. The word
+cmdlet is unique to PowerShell, so if you add it to your search keywords on your
+favorite search engine, the results you get back will be mainly PowerShell
+related. The word is pronounced command-let.
+
+A function can be similar to a cmdlet, but rather than being written in a .NET
+language, functions are written in PowerShell’s own scripting language.
+
+An application is any kind of external executable, including command-line utilities
+such as ping and ipconfig.
+
+Command is the generic term that we use to refer to any or all of the preceding
+terms.
