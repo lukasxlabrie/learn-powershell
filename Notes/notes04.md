@@ -42,3 +42,13 @@ anonymous scripts.
 The execution policy isn’t intended to stop an informed user
 
 Poweshell in short is running commands until you get them right, and then paste them into a text file and call it a script.
+
+SYNTAX EXAMPLE:
+Get-Command -Verb Get -Module PSReadLine,PowerShellGet -Syntax
+
+- Get-Command: Cmdlet in Verb-Noun format.
+- -Verb Get: Parameter with a simple value (no quotes needed).
+- -Module PSReadLine,PowerShellGet: Comma-separated list of values.
+- -Syntax: Switch parameter—no value required.
+- Mandatory spaces separate cmdlet and parameters.
+- Parameter names start with - and are not case sensitive.
