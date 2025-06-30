@@ -35,3 +35,8 @@ are embedding PowerShell within their application. This setting bypasses the
 configured execution policy and should be used only when the hosting application
 is providing its own layer of script security. You’re essentially telling Power-
 Shell, “Don’t worry. I have security covered.”
+
+REMINDER: intended to protect only uninformed users from unintentionally running
+anonymous scripts.
+
+The execution policy isn’t intended to stop an informed user
