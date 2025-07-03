@@ -10,8 +10,6 @@ You will need to use the help system regularly to complete exercises
 Always read the help section for each command to get used to its structure and usage
 Use the help system to learn proper syntax and parameter rules
 
----
-
 **Using the Help System**
 
 If local help is not installed, update it using:
@@ -34,8 +32,6 @@ Note:
 `help` is a **function**
 `Get-Help` is the actual **cmdlet**
 
----
-
 **Understanding PowerShell Terms**
 
 Commands – umbrella term that includes:
@@ -49,8 +45,6 @@ Cmdlets – PowerShell-specific commands, follow the Verb-Noun format
 Functions – blocks of code you can define and reuse
 Objects – the output of most PowerShell commands
 Events – triggers or responses in the system or application
-
----
 
 **Parameters and Syntax**
 
