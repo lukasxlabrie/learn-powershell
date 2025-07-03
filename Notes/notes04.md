@@ -42,6 +42,10 @@ Get-Command -Verb Get -Module PSReadLine,PowerShellGet -Syntax
 - Mandatory spaces between cmdlet and parameters.
 - Parameters start with `-` and are not case sensitive.
 
+** If the parameter has a value, a space will come between the parameter
+name and its value.
+
+
 PowerShell Command Components
 
 | Term         | Description                                                                 |
