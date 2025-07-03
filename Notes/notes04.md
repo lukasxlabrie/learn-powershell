@@ -60,3 +60,44 @@ Aliases: Nicknames for commands (e.g., `gcm` for `Get-Command`).
 Truncated parameters: `-Ver` works for `-Verb` if unambiguous.
 Positional parameters: Skip names entirely if order is correct.
 Parameter aliases: Use known alternatives.
+
+Not every external command works smoothly in PowerShell.
+
+PowerShell’s parser may misread complex or parameter-heavy commands, causing errors.
+
+Reliable Fix: Use Variables + Call Operator & Powershell
+Copy
+Edit
+$exe = "func"
+$action = "new"
+$language = "powershell"
+$template = "HttpTrigger"
+$name = "myFunc"
+& $exe $action -l $language -t $template -n $name
+Treats each piece as a single, safe unit. Prevents Powershell from misparing parameters.
+
+Wrapping values in variables + using & avoids misinterpretation.
+
+Easier Fix (PowerShell v3+): Use --%
+--% tells PowerShell to stop parsing the rest—just send it raw.
+
+Caution: Variables won’t work:
+
+powershell
+Copy
+Edit
+$name = "MyFunc"
+func new -t HttpTrigger -n --% $name   # ❌ Fails – $name not expanded
+
+Example Command Breakdown (func CLI):
+new = action
+
+-l = language
+
+-t = template
+
+-n = function name
+
+Use Case	                Best Approach
+Need variable support	    & + variable style
+Quick + literal input	    --% passthrough
