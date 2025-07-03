@@ -10,8 +10,8 @@ Example: # This is a comment
 
 Symbol reference:
 '  single quote
-\`  backtick (used to escape characters)
+`  backtick (used to escape characters)
 () parentheses
 {} curly brackets
-\[] square brackets
+[] square brackets
 <> angle brackets (used as placeholders, not actual syntax)
