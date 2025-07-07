@@ -17,6 +17,7 @@ Test-Connection -TargetName
 
 # Display a list of all commands that are of the cmdlet type. 
 #(This is tricky—we’ve shown you Get-Command, but you need to read the help to find out how to narrow down the list as we’ve asked.)
+Get-Command -CommandType Cmdlet
 
 # Display a list of all aliases.
 
