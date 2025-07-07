@@ -20,6 +20,7 @@ Test-Connection -TargetName
 Get-Command -CommandType Cmdlet
 
 # Display a list of all aliases.
+Get-Command -Alias
 
 # Make a new alias, so you can run ntst to run netstat from a PowerShell prompt.
 
