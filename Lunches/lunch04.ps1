@@ -13,6 +13,7 @@ PS /Users/james> (get-command get-process | select -Expandparameters).erroractio
 Get-Process
 
 # Test the connection to google.com or bing.com without using an external command like ping.
+Test-Connection -TargetName
 
 # Display a list of all commands that are of the cmdlet type. 
 #(This is tricky—we’ve shown you Get-Command, but you need to read the help to find out how to narrow down the list as we’ve asked.)
