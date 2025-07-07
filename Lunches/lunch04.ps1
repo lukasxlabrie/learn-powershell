@@ -10,6 +10,7 @@ PS /Users/james> (get-command get-process | select -Expandparameters).erroractio
 # lab
 
 # Display a list of running processes.
+Get-Process
 
 # Test the connection to google.com or bing.com without using an external command like ping.
 
