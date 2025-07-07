@@ -1,10 +1,10 @@
 PowerShell Shortcuts and Tips
 
-Tab completion: Type part of a command like Get-P and press Tab to cycle through options
+Tab completion: Type part of a command like Get-P and press Tab twice to cycle through options
 Similar to IntelliSense in Visual Studio, but simpler
 
 Use # to write comments
-Example: # This is a comment
+# This is a comment
 
 \$PSVersionTable shows the version of PowerShell you're using
 
