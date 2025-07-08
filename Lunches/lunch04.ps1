@@ -27,6 +27,7 @@ New-Alias -Name "ntst" -Value "netstat" -Description "Alias for netstat command"
 
 # Display a list of processes that begin with the letter p. Again, read the help for the necessary command—and don’t forget that the asterisk (*) is a near-universal
 # wildcard in PowerShell.
+Get-Process -Name p* 
 
 # Make a new folder (aka directory) using the New-Item cmdlet with the name of MyFolder1. 
 # Then do it again and call it MyFolder2. Use Help if you’re not familiar with New-Item.
