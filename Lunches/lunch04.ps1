@@ -30,6 +30,9 @@ New-Alias -Name "ntst" -Value "netstat" -Description "Alias for netstat command"
 Get-Process -Name p* 
 
 # Make a new folder (aka directory) using the New-Item cmdlet with the name of MyFolder1. 
+New-Item -Path . -Name "MyFolder1" -ItemType "File"
+
 # Then do it again and call it MyFolder2. Use Help if you’re not familiar with New-Item.
+New-Item -Path . -Name "MyFolder2" -ItemType "File"
 
 # Remove the folders from step 7 in a single command. Use Get-Command to find a similar cmdlet to what we used in step 7—and don’t
