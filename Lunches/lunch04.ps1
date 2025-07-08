@@ -36,3 +36,4 @@ New-Item -Path . -Name "MyFolder1" -ItemType "File"
 New-Item -Path . -Name "MyFolder2" -ItemType "File"
 
 # Remove the folders from step 7 in a single command. Use Get-Command to find a similar cmdlet to what we used in step 7—and don’t
+Remove-Item -Path .\MyFolder1, .\MyFolder2 -Force
