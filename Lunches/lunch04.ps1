@@ -21,8 +21,9 @@ Get-Command -CommandType Cmdlet
 
 # Display a list of all aliases.
 Get-Command -Alias
-
+ 
 # Make a new alias, so you can run ntst to run netstat from a PowerShell prompt.
+New-Alias -Name "ntst" -Value "netstat" -Description "Alias for netstat command" -Option None
 
 # Display a list of processes that begin with the letter p. Again, read the help for the necessary command—and don’t forget that the asterisk (*) is a near-universal
 # wildcard in PowerShell.
