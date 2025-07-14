@@ -10,11 +10,11 @@ Get-ChildItem Env:/A*
 
 #LABS
 # 1. Create a new directory called Labs.
-
-
+New-Item -Path "labs" ItemType "Direcotory"
 
 # 2. Create a zero-length file named /Labs/Test.txt (use New-Item).
-
+#  zero-length file, also known as a zero-byte file, is a file with no data
+New-Item -Path "/Labs/Test.txt" -ItemType "File"
 
 
 # 3. Is it possible to use Set-Item to change the contents of /Labs/Test.txt to -TESTING? Or do you get an error? If you get an error, why?
