@@ -1,68 +1,117 @@
-Here’s the updated, **speed-readable cheat sheet** with your new content on **PSProviders** added and integrated into the existing format:
-## 🔹 Filesystem Organization (PowerShell Context)
+**Filesystem Organization (PowerShell Context)**
 
-* **Item**: Generic object in PowerShell (file, folder, registry key, etc.).
-* **Folder**: Container for files and other folders.
-* **File**: Endpoint object; not a container.
-* **ChildItem**: Contents inside a container item (e.g., files in a folder).
-* **ItemProperty**: Metadata/attributes of an item (e.g., length, read-only, timestamp).
+* Item: Generic object in PowerShell (file, folder, registry key, etc.)
+* Folder: Container for files and other folders
+* File: Endpoint object; not a container
+* ChildItem: Contents inside a container (e.g., files in a folder)
+* ItemProperty: Metadata or attributes of an item (length, read-only, timestamp)
 
-## 🔹 Cmdlet Behavior
+---
 
-* **Generic cmdlets**: Work across data stores (filesystem, registry, ENV, etc.).
-* **FileSystem Provider**: Doesn’t support `-UseTransaction`.
-* **Environment Provider (ENV:)**: No item properties; used for environment variables.
+**Cmdlet Behavior**
 
-## 🔹 PSProvider (PowerShell Provider)
+* Generic cmdlets: Work across providers (filesystem, registry, ENV, etc.)
+* FileSystem Provider: Does not support -UseTransaction
+* Environment Provider (ENV:): No item properties; used for name/value variables only
+* Item cmdlets: Accept both -Path and -LiteralPath parameters
 
-* **Definition**: An adapter that exposes data (e.g., filesystem, registry, AD) as a navigable drive.
-* **Examples**: Filesystem, Registry, Active Directory, ENV
-* **Looks like a drive** in PowerShell, but is mapped to non-filesystem storage.
+---
 
-### 🔸 Common Capabilities:
+**PSProvider (PowerShell Provider)**
 
-* **ShouldProcess**: Enables `-WhatIf` and `-Confirm` for safe testing.
-* **Filter**: Supports `-Filter` to narrow cmdlet operations.
-* **Credentials**: Allows using alternate credentials (e.g., remote access).
+* Definition: An adapter that exposes data (filesystem, registry, ENV, AD, etc.) as a navigable drive
+* Examples: FileSystem, Registry, ENV, Active Directory, Certificate
+* Appears like a drive in PowerShell but may map to non-filesystem sources
 
+Common Capabilities:
 
-## 🔹 PSDrives
+* ShouldProcess: Enables -WhatIf and -Confirm
+* Filter: Supports -Filter to narrow cmdlet operations faster than using Where-Object
+* Credentials: Allows alternate credentials (varies by provider)
 
-* **PSDrive**: Virtual drive mapped to a provider.
+---
 
-  * Examples: `C:`, `ENV:`, `HKLM:`, `AD:`
-* **Linux/macOS**: Root = `/`; PowerShell also allows `\`
+**PSDrives**
 
+* PSDrive: Virtual drive mapped to a provider
+* Examples: C:, ENV:, HKLM:, AD:, Cert:
+* Linux/macOS: Root = / (PowerShell also accepts )
+* Use Get-PSDrive to list available drives
 
-## 🔹 Navigating the Filesystem
+---
 
-* **Set-Location (`cd`)**: Changes current directory/path.
+**Navigating the Filesystem**
 
-  * Linux/macOS: `cd /usr/bin`
-  * Windows: `cd C:\Users\`
+* Set-Location (cd): Changes current directory/path
 
-* **Paths**:
+  * Linux/macOS: cd /usr/bin
+  * Windows: cd C:\Users\\
+* Use Tab to autocomplete paths and command names
+* Press Tab twice to cycle through multiple matches
 
-  * `*` = Wildcard for 0+ characters
-  * `?` = Wildcard for 1 character
+---
 
+**Path and Wildcards**
 
-## 🔹 Get-ChildItem
+* * matches zero or more characters
+* ? matches exactly one character
+* Use quotation marks to separate items with spaces:
 
-* **Purpose**: Lists contents (files/folders) of a path.
-* **Parameter: `-Path <String[]>`**
+  * Correct: "thing 1" "thing 2"
+  * Incorrect: "thing 1 thing 2"
 
-  * Wildcards: ✅
-  * Pipeline input: ✅
-  * Default: Current directory (`.`)
+---
 
-## 🔹 Verb-Noun Pairs
+**Using -Path**
 
-* **Common Verbs**:
-  `Get`, `Set`, `New`, `Copy`, `Move`, `Rename`, `Remove`, `Clear`
+* -Path accepts wildcards
+* Positional: yes (Position 1)
+* Wildcards: allowed
+* Accepts pipeline input: true (ByValue, ByPropertyName)
+* Default value: current directory (.)
 
-* **Item**: Any object (file, folder, registry key).
+Example:
+Get-ChildItem -Path "C:\Scripts\y\*"
 
-* **ItemProperty**: Item's characteristics (e.g., timestamps, attributes).
+---
 
+**Using -LiteralPath**
 
+* -LiteralPath uses the value exactly as typed
+
+* Wildcards are not interpreted
+
+* Not positional; must be named explicitly
+
+* Use single quotes to prevent escape characters from being interpreted
+
+* Accepts pipeline input: true (ByValue, ByPropertyName)
+
+* Accepts wildcard characters: false
+
+Use when filenames contain \* or ? that should be treated as actual characters
+
+Example:
+Get-Item -LiteralPath 'variable?'
+
+---
+
+**Get-ChildItem**
+
+* Purpose: Lists contents of a path (files, folders)
+* Parameter: -Path \<String\[]>
+
+  * Wildcards: allowed
+  * Pipeline input: accepted
+  * Default location: current directory (.)
+
+---
+
+**Verb-Noun Naming Pattern**
+
+* Verb-Noun format is required for cmdlets
+* Common Verbs: Get, Set, New, Copy, Move, Rename, Remove, Clear
+* Item: Any object (file, folder, registry key)
+* ItemProperty: Object metadata or characteristics
+
+---
