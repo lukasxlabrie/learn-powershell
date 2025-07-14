@@ -18,8 +18,9 @@ New-Item -Path "/Labs/Test.txt" -ItemType "File"
 
 
 # 3. Is it possible to use Set-Item to change the contents of /Labs/Test.txt to -TESTING? Or do you get an error? If you get an error, why?
-
-
+Set-Item -Path '/Labs/Test.txt' -Value '-TESTING'
+    # Set-Item is used to replace an item itself, not its content. In the FileSystem provider, that means replacing the file, not editing what's inside.
+    # use Set-Content or Add-Content 
 
 # 4. Using the Environment provider, display the value of the system environment variable PATH.
 
