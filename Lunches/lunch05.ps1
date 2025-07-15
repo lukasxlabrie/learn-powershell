@@ -23,7 +23,7 @@ Set-Item -Path '/Labs/Test.txt' -Value '-TESTING'
     # use Set-Content or Add-Content 
 
 # 4. Using the Environment provider, display the value of the system environment variable PATH.
-
+Get-ChildItem Env:PATH
 
 
 # 5. Use help to determine what the differences are between the -Filter, -Include, and -Exclude parameters of Get-ChildItem
