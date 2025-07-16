@@ -53,5 +53,98 @@ You can then pipe these into formatters or exporters:
 gps | Format-Table -AutoSize
 gcm | Export-Csv -Path "commands.csv" -NoTypeInformation
 h | Out-File -FilePath "history.txt"
+---
+
+## PowerShell: Import / Export Reference
+
+### CSV (Comma-Separated Values)
+
+**Best for:**
+
+* Viewing and editing flat data in Excel or text editors
+* Simple tabular data
+
+**Export:**
+
+```powershell
+Get-Process | Export-Csv -Path "processes.csv" -NoTypeInformation
 ```
+
+**Import:**
+
+```powershell
+$procs = Import-Csv -Path "processes.csv"
+```
+
+---
+
+### JSON (JavaScript Object Notation)
+
+**Best for:**
+
+* Working with APIs and web services
+* Handling nested or complex data structures (e.g., process threads)
+
+**Export:**
+
+```powershell
+Get-Process | ConvertTo-Json | Out-File "processes.json"
+```
+
+**Import:**
+
+```powershell
+$json = Get-Content "processes.json" | ConvertFrom-Json
+```
+
+---
+
+### XML (CLIXML - PowerShell native format)
+
+**Best for:**
+
+* Preserving full object structure and type information
+* PowerShell-to-PowerShell data transfer
+
+**Export:**
+
+```powershell
+Get-Process | Export-Clixml -Path "processes.xml"
+```
+
+**Import:**
+
+```powershell
+$procs = Import-Clixml -Path "processes.xml"
+```
+
+---
+
+### Out-File
+
+**Best for:**
+
+* Writing plain text output to a file
+* Logging or saving formatted command output as displayed in the console
+
+**Example:**
+
+```powershell
+Get-Command | Out-File -FilePath "commands.txt"
+```
+
+---
+
+### Summary Table
+
+| Format   | Use Case                         | Handles Nested Data | Editable in Excel | Preserves Object Types |
+| -------- | -------------------------------- | ------------------- | ----------------- | ---------------------- |
+| CSV      | Flat data, Excel-friendly        | No                  | Yes               | No                     |
+| JSON     | Web APIs, structured data        | Yes                 | No                | No                     |
+| CLIXML   | PowerShell-native object storage | Yes                 | No                | Yes                    |
+| Out-File | Plain text output and logging    | No                  | No                | No                     |
+
+---
+
+
 
