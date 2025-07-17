@@ -146,5 +146,95 @@ Get-Command | Out-File -FilePath "commands.txt"
 
 ---
 
+## Compare-Object in PowerShell
+
+### Purpose
+
+`Compare-Object` compares two sets of data (collections of objects) and shows their differences.
+
+### Syntax
+
+```powershell
+Compare-Object -ReferenceObject <data1> -DifferenceObject <data2> [-Property <propertyName>]
+```
+
+---
+
+### Parameters
+
+| Parameter           | Description                                                                              |
+| ------------------- | ---------------------------------------------------------------------------------------- |
+| `-ReferenceObject`  | The baseline/original data                                                               |
+| `-DifferenceObject` | The data to compare against the reference                                                |
+| `-Property`         | Specifies one or more object properties to compare (instead of comparing entire objects) |
+
+---
+
+### Example with `-Property`
+
+```powershell
+Compare-Object -ReferenceObject (Import-Clixml "before.xml") `
+               -DifferenceObject (Get-Process) `
+               -Property Name
+```
+
+**Explanation:**
+
+* `Import-Clixml` loads a saved list of processes (before.xml)
+* `Get-Process` fetches the current list of running processes
+* `-Property Name` tells PowerShell to compare only the `Name` property of each process
+
+---
+
+### Sample Output:
+
+```
+Name      SideIndicator
+----      -------------
+notepad   <=
+chrome    =>
+```
+
+* `<=` appears only in the reference data (saved XML)
+* `=>` appears only in the current system data (live process list)
+
+---
+
+### Why Parentheses Are Required
+
+Just like in math, **PowerShell uses parentheses to control execution order**.
+
+Without parentheses:
+
+```powershell
+Compare-Object -ReferenceObject Import-Clixml "before.xml" ...
+```
+
+PowerShell would try to pass the literal command instead of its output — this results in a syntax or type error.
+
+With parentheses:
+
+```powershell
+-ReferenceObject (Import-Clixml "before.xml")
+```
+
+The `Import-Clixml` command runs first, and the resulting object is passed correctly as input.
+
+---
+
+### Summary Table
+
+| Concept             | Description                                                                                      |
+| ------------------- | ------------------------------------------------------------------------------------------------ |
+| `Compare-Object`    | Compares two collections of objects                                                              |
+| `-ReferenceObject`  | The original or baseline data set                                                                |
+| `-DifferenceObject` | The current or comparison data set                                                               |
+| `-Property <name>`  | Compares only the specified property instead of the full object                                  |
+| Parentheses `()`    | Ensure commands like `Get-Process` and `Import-Clixml` execute before passing data to the cmdlet |
+
+---
+
+
+
 
 
