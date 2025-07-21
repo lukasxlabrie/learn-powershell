@@ -5,7 +5,7 @@ Get-ExecutionPolicy
 Set-ExecutionPolicy
 
 # find parameter aliases example
-PS /Users/james> (get-command get-process | select -Expandparameters).erroraction.aliases
+get-command get-process | select -Expandparameters.erroraction.aliases
 
 # lab
 
