@@ -1,9 +1,9 @@
 #LABS
 
 <# 1. Create two similar, but different, text files. Try comparing them by using Compare-
-Object. Run something like this: Compare-Object -Reference (Get-Content
-File1.txt) -Difference (Get-Content File2.txt). If the files have only one
-line of text that’s different, the command should work.
+Object. Run something like this: 
+Compare-Object -Reference (Get-ContentFile1.txt) -Difference (Get-Content File2.txt). 
+If the files have only one line of text that’s different, the command should work.
 #>
 
 <# 2. What happens if you run Get-Command | Export-CSV commands.CSV | Out-File
