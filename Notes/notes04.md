@@ -72,6 +72,7 @@ PowerShell’s parser may misread complex or parameter-heavy commands, causing e
 Reliable Fix: Use Variables + Call Operator & Powershell
 Copy
 Edit
+Vars start with a $
 $exe = "func"
 $action = "new"
 $language = "powershell"
