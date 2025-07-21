@@ -1,176 +1,125 @@
+## 1. Pipelines Overview
 
-## PowerShell Pipelines and Data Export
+PowerShell uses pipelines (`|`) to pass the output of one command into another.
 
-PowerShell connects commands using a **pipeline**, which allows one command to pass its output to another. This is done using the **pipe symbol `|`**, letting the second command process the output of the first.
-
-### 🔹 Pipelining Example
+**Example:**
 
 ```powershell
 Get-Process | Sort-Object CPU -Descending | Select-Object -First 5
 ```
 
-This example:
-
-* Gets all running processes.
-* Sorts them by CPU usage (highest first).
-* Selects the top 5.
+* Gets all running processes
+* Sorts by CPU usage
+* Selects the top 5
 
 ---
 
-### 🔹 Exporting Data in PowerShell
+## 2. Exporting Data
 
-PowerShell supports exporting data to **multiple useful formats**, including:
+### Supported Formats:
 
-* **TXT**: Plain text
-* **CSV**: Comma-separated values (Excel-friendly)
-* **JSON**: JavaScript Object Notation (widely used in APIs)
-* **XML**: Extensible Markup Language (used in config and data files)
+| Format | Best Use Case                   | Cmdlet           |
+| ------ | ------------------------------- | ---------------- |
+| TXT    | Plain text logging              | `Out-File`       |
+| CSV    | Flat tabular data (Excel)       | `Export-Csv`     |
+| JSON   | APIs and nested structures      | `ConvertTo-Json` |
+| CLIXML | Preserves full object type info | `Export-Clixml`  |
 
-These formats are helpful when exporting data from sources like **Azure Active Directory** or **cloud storage**.
-
-#### Examples:
-
-```powershell
-Get-Process | Export-Csv -Path "Processes.csv" -NoTypeInformation
-Get-Command | Out-File -FilePath "Commands.txt"
-```
-
----
-
-### 🔹 Practice with Built-In Commands
-
-To understand piping, try it out using these common commands:
-
-| Cmdlet                  | Alias |
-| ----------------------- | ----- |
-| `Get-Process`           | `gps` |
-| `Get-Command`           | `gcm` |
-| `Get-History -Count 10` | `h`   |
-
-You can then pipe these into formatters or exporters:
+### Examples:
 
 ```powershell
-gps | Format-Table -AutoSize
-gcm | Export-Csv -Path "commands.csv" -NoTypeInformation
-h | Out-File -FilePath "history.txt"
----
-
-## PowerShell: Import / Export Reference
-
-### CSV (Comma-Separated Values)
-
-**Best for:**
-
-* Viewing and editing flat data in Excel or text editors
-* Simple tabular data
-
-**Export:**
-
-```powershell
-Get-Process | Export-Csv -Path "processes.csv" -NoTypeInformation
-```
-
-**Import:**
-
-```powershell
-$procs = Import-Csv -Path "processes.csv"
-```
-
----
-
-### JSON (JavaScript Object Notation)
-
-**Best for:**
-
-* Working with APIs and web services
-* Handling nested or complex data structures (e.g., process threads)
-
-**Export:**
-
-```powershell
+Get-Process | Export-Csv "processes.csv" -NoTypeInformation
+Get-Command | Out-File "commands.txt"
 Get-Process | ConvertTo-Json | Out-File "processes.json"
+Get-Process | Export-Clixml "processes.xml"
 ```
 
-**Import:**
+---
+
+## 3. Importing Data
+
+### Import Cmdlets (Always use matching pairs):
+
+| Exported With   | Import With                   |
+| --------------- | ----------------------------- |
+| `Export-Csv`    | `Import-Csv`                  |
+| `Export-Clixml` | `Import-Clixml`               |
+| `Out-File`      | `Get-Content` (raw text only) |
+
+**Correct:**
 
 ```powershell
-$json = Get-Content "processes.json" | ConvertFrom-Json
+Import-Csv "processes.csv"
+Import-Clixml "processes.xml"
 ```
 
----
-
-### XML (CLIXML - PowerShell native format)
-
-**Best for:**
-
-* Preserving full object structure and type information
-* PowerShell-to-PowerShell data transfer
-
-**Export:**
+**Incorrect:**
 
 ```powershell
-Get-Process | Export-Clixml -Path "processes.xml"
+Get-Content "processes.csv"  # Returns unstructured text
 ```
 
-**Import:**
+---
+
+## 4. Summary: Export/Import Formats
+
+| Format   | Nested Data | Editable in Excel | Preserves Object Types |
+| -------- | ----------- | ----------------- | ---------------------- |
+| CSV      | No          | Yes               | No                     |
+| JSON     | Yes         | No                | No                     |
+| CLIXML   | Yes         | No                | Yes                    |
+| Out-File | No          | No                | No                     |
+
+---
+
+## 5. Out-File vs Redirect `>`
 
 ```powershell
-$procs = Import-Clixml -Path "processes.xml"
+Dir > DirectoryList.txt           # Redirect shortcut
+Dir | Out-File "DirectoryList.txt"  # Full control
 ```
 
----
+Use `Out-File` when you need:
 
-### Out-File
+* Encoding control (`-Encoding UTF8`)
+* File width adjustment (`-Width 200`)
+* Appending data (`-Append`)
 
-**Best for:**
-
-* Writing plain text output to a file
-* Logging or saving formatted command output as displayed in the console
-
-**Example:**
+**Default width is 80 columns. Adjust with `-Width`.**
 
 ```powershell
-Get-Command | Out-File -FilePath "commands.txt"
+Get-Process | Out-File "procs.txt" -Width 200 -Encoding UTF8
 ```
 
 ---
 
-### Summary Table
+## 6. Generating HTML Reports
 
-| Format   | Use Case                         | Handles Nested Data | Editable in Excel | Preserves Object Types |
-| -------- | -------------------------------- | ------------------- | ----------------- | ---------------------- |
-| CSV      | Flat data, Excel-friendly        | No                  | Yes               | No                     |
-| JSON     | Web APIs, structured data        | Yes                 | No                | No                     |
-| CLIXML   | PowerShell-native object storage | Yes                 | No                | Yes                    |
-| Out-File | Plain text output and logging    | No                  | No                | No                     |
-
----
-
-## Compare-Object in PowerShell
-
-### Purpose
-
-`Compare-Object` compares two sets of data (collections of objects) and shows their differences.
-
-### Syntax
+Convert tabular data to HTML:
 
 ```powershell
-Compare-Object -ReferenceObject <data1> -DifferenceObject <data2> [-Property <propertyName>]
+Get-Process -Id $PID | ConvertTo-Html
+```
+
+Displays raw HTML in terminal.
+
+To save to file:
+
+```powershell
+Get-Process | ConvertTo-Html | Out-File "processes.html"
+```
+
+Add CSS styling:
+
+```powershell
+Get-Service | ConvertTo-Html -CssUri "style.css" | Out-File "report.html"
 ```
 
 ---
 
-### Parameters
+## 7. `Compare-Object`
 
-| Parameter           | Description                                                                              |
-| ------------------- | ---------------------------------------------------------------------------------------- |
-| `-ReferenceObject`  | The baseline/original data                                                               |
-| `-DifferenceObject` | The data to compare against the reference                                                |
-| `-Property`         | Specifies one or more object properties to compare (instead of comparing entire objects) |
-
----
-
-### Example with `-Property`
+Compare two object sets:
 
 ```powershell
 Compare-Object -ReferenceObject (Import-Clixml "before.xml") `
@@ -178,63 +127,110 @@ Compare-Object -ReferenceObject (Import-Clixml "before.xml") `
                -Property Name
 ```
 
-**Explanation:**
-
-* `Import-Clixml` loads a saved list of processes (before.xml)
-* `Get-Process` fetches the current list of running processes
-* `-Property Name` tells PowerShell to compare only the `Name` property of each process
-
----
-
-### Sample Output:
+**Output:**
 
 ```
 Name      SideIndicator
-----      -------------
-notepad   <=
-chrome    =>
+notepad   <=     # only in reference
+chrome    =>     # only in current
 ```
 
-* `<=` appears only in the reference data (saved XML)
-* `=>` appears only in the current system data (live process list)
-
----
-
-### Why Parentheses Are Required
-
-Just like in math, **PowerShell uses parentheses to control execution order**.
-
-Without parentheses:
+### Why Use Parentheses?
 
 ```powershell
-Compare-Object -ReferenceObject Import-Clixml "before.xml" ...
-```
-
-PowerShell would try to pass the literal command instead of its output — this results in a syntax or type error.
-
-With parentheses:
-
-```powershell
+# Correct
 -ReferenceObject (Import-Clixml "before.xml")
+
+# Incorrect
+-ReferenceObject Import-Clixml "before.xml"  # Fails
 ```
 
-The `Import-Clixml` command runs first, and the resulting object is passed correctly as input.
+Parentheses force execution order.
 
 ---
 
-### Summary Table
+## 8. Common Pipeline Pairings
 
-| Concept             | Description                                                                                      |
-| ------------------- | ------------------------------------------------------------------------------------------------ |
-| `Compare-Object`    | Compares two collections of objects                                                              |
-| `-ReferenceObject`  | The original or baseline data set                                                                |
-| `-DifferenceObject` | The current or comparison data set                                                               |
-| `-Property <name>`  | Compares only the specified property instead of the full object                                  |
-| Parentheses `()`    | Ensure commands like `Get-Process` and `Import-Clixml` execute before passing data to the cmdlet |
+| Get Cmdlet    | Compatible Action Cmdlet  |
+| ------------- | ------------------------- |
+| `Get-Process` | `Stop-Process`            |
+| `Get-Service` | `Restart-Service`         |
+| `Get-Job`     | `Receive-Job`, `Stop-Job` |
+
+**Example:**
+
+```powershell
+Get-Process -Name notepad | Stop-Process
+```
+
+**Bad Example:**
+
+```powershell
+Get-Process | New-Alias  # Incompatible data types
+```
 
 ---
 
+## 9. Confirming and Testing Cmdlets
 
+Some cmdlets modify system state and have a defined **impact level**.
 
+### `$ConfirmPreference`
 
+```powershell
+$ConfirmPreference  # Default: High
+```
 
+When a cmdlet’s impact ≥ `$ConfirmPreference`, PowerShell asks for confirmation.
+
+Force confirmation:
+
+```powershell
+Stop-Process -Confirm
+```
+
+Simulate without executing:
+
+```powershell
+Stop-Process -Name notepad -WhatIf
+```
+
+### Summary
+
+| Parameter            | Purpose                            |
+| -------------------- | ---------------------------------- |
+| `-Confirm`           | Prompt before executing            |
+| `-WhatIf`            | Show what would happen (no action) |
+| `$ConfirmPreference` | Global threshold for confirmation  |
+
+---
+
+## 10. Common Misunderstandings
+
+### Problem: CSV looks like garbage with `Get-Content`
+
+```powershell
+Get-Content "processes.csv"  # Shows raw text
+```
+
+**Fix:**
+
+```powershell
+Import-Csv "processes.csv"
+```
+
+This parses headers and creates structured output similar to the original objects.
+
+### Recommended Pairings
+
+| File Type  | Export With     | Import With     |
+| ---------- | --------------- | --------------- |
+| CSV        | `Export-Csv`    | `Import-Csv`    |
+| CLIXML     | `Export-Clixml` | `Import-Clixml` |
+| Plain Text | `Out-File`      | `Get-Content`   |
+
+Use `-IncludeTypeInformation` if exporting richer CSVs:
+
+```powershell
+Get-Process | Export-Csv "processes.csv" -IncludeTypeInformation
+```
