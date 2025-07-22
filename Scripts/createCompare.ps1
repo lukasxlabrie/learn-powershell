@@ -13,4 +13,6 @@ New-Item -Path . -Name "Example2.txt" -ItemType File
 "Easy Peasey Lemon Squeezy" | Set-Content -Path ".\Example1.txt"
 "Easy Peasey Lemon Squeezy Curtail Simpson Target Breezey" | Set-Content -Path ".\Example2.txt"
 
+Compare-Object -Reference (Get-Content Example1.txt) -Difference (Get-Content Example2.txt)
+
 Stop-Transcription
