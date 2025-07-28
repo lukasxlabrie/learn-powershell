@@ -6,6 +6,8 @@ Compare-Object -Reference (Get-ContentFile1.txt) -Difference (Get-Content File2.
 If the files have only one line of text that’s different, the command should work.
 #>
 
+# See createCompare script
+
 <# 2. What happens if you run Get-Command | Export-CSV commands.CSV | Out-File
 from the console? Why does that happen? #>
 
