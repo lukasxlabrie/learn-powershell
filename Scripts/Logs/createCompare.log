@@ -1,0 +1,51 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20250728142054
+Username: LXL\lukas
+RunAs User: LXL\lukas
+Configuration Name: 
+Machine: LXL (Microsoft Windows NT 10.0.26100.0)
+Host Application: C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -Command Import-Module 'c:\Users\lukas\.vscode\extensions\ms-vscode.powershell-2025.2.0\modules\PowerShellEditorServices\PowerShellEditorServices.psd1'; Start-EditorServices -HostName 'Visual Studio Code Host' -HostProfileId 'Microsoft.VSCode' -HostVersion '2025.2.0' -BundledModulesPath 'c:\Users\lukas\.vscode\extensions\ms-vscode.powershell-2025.2.0\modules' -EnableConsoleRepl -StartupBanner "PowerShell Extension v2025.2.0
+Copyright (c) Microsoft Corporation.
+
+https://aka.ms/vscode-powershell
+Type 'help' to get help.
+" -LogLevel 'Warning' -LogPath 'c:\Users\lukas\AppData\Roaming\Code\logs\20250728T140350\window1\exthost\ms-vscode.powershell' -SessionDetailsPath 'c:\Users\lukas\AppData\Roaming\Code\User\globalStorage\ms-vscode.powershell\sessions\PSES-VSCode-11560-559060.json' -FeatureFlags @() 
+Process ID: 23384
+PSVersion: 5.1.26100.4652
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.4652
+BuildVersion: 10.0.26100.4652
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is C:\Users\lukas\OneDrive\Documents\learn-powershell\learn-powershell\Scripts\logs\createCompare.log
+Starting the script to compare two text files...
+
+Monday, July 28, 2025 2:20:54 PM
+
+LastWriteTime : 7/28/2025 2:20:54 PM
+Length        : 0
+Name          : Example1.txt
+
+
+LastWriteTime : 7/28/2025 2:20:54 PM
+Length        : 0
+Name          : Example2.txt
+
+Created Example1.txt and Example2.txt
+
+InputObject   : Easy Peasey Lemon Squeezy Curtail Simpson Target Breezey
+SideIndicator : =>
+
+
+InputObject   : Easy Peasey Lemon Squeezy
+SideIndicator : <=
+
+Compared Example1.txt and Example2.txt
+**********************
+Windows PowerShell transcript end
+End time: 20250728142054
+**********************
