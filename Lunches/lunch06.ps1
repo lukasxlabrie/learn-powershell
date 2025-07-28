@@ -21,6 +21,10 @@ contains the text output of the Export-CSV command, not the actual CSV data.#>
 means does Stop-Job provide for you to specify the job or jobs you want to
 stop? Is it possible to stop a job without using Get-Job at all?#> 
 
+<# Yes, you can use the -Id parameter to specify the job by its ID. 
+You can also use the -Name parameter to specify the job by its name. 
+It is possible to stop a job without using Get-Job by directly referencing the job's ID or name in the Stop-Job command.
+#>
 
 <# 4 What if you want to create a pipe-delimited file instead of a CSV file? You’d still
 use the Export-CSV command, but what parameters would you specify? #>
