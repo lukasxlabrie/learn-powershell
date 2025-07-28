@@ -11,6 +11,11 @@ If the files have only one line of text that’s different, the command should w
 <# 2. What happens if you run Get-Command | Export-CSV commands.CSV | Out-File
 from the console? Why does that happen? #>
 
+<#looks lke it writes the output of Export-CSV to a file called commands.CSV, but it does not
+actually create a CSV file. The reason is that Export-CSV does not write to the pipeline.
+Instead, it writes to a file. The Out-File command then takes the output of Export-CSV
+and writes it to a file called commands.CSV. The result is that the file commands.CSV
+contains the text output of the Export-CSV command, not the actual CSV data.#>
 
 <# 3. Apart from getting one or more jobs and piping them to Stop-Job, what other
 means does Stop-Job provide for you to specify the job or jobs you want to
