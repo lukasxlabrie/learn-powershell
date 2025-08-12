@@ -28,10 +28,16 @@ It is possible to stop a job without using Get-Job by directly referencing the j
 
 <# 4 What if you want to create a pipe-delimited file instead of a CSV file? You’d still
 use the Export-CSV command, but what parameters would you specify? #>
+# You would use the -Delimiter parameter to specify the pipe character (|) as the delimiter.
+# Example: Export-CSV -Path "output.csv" -Delimiter "|"
+
+
 
 
 <# 5 How do you include the type information in the # comment line at the top of
 an exported CSV file? #>
+# You can include the type information in the comment line at the top of an exported CSV file by using the -NoTypeInformation parameter with Export-CSV.
+# Example: Export-CSV -Path "output.csv" -NoTypeInformation:$false
 
 
 <# 6 Export-Clixml and Export-CSV both modify the system because they can create
