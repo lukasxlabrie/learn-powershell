@@ -44,8 +44,13 @@ an exported CSV file? #>
 and overwrite files. What parameter would prevent them from overwriting
 an existing file? What parameter would ask whether you were sure before proceeding
 to write the output file? #>
+# The parameter that prevents overwriting an existing file is -NoClobber.
+# The parameter that asks for confirmation before proceeding to write the output file is -Confirm.
 
 
 <# 7 The operating system maintains several regional settings, which include a
 default list separator. On US systems, that separator is a comma. How can you
 tell Export-CSV to use the system’s default separator rather than a comma? #>
+# You can tell Export-CSV to use the system's default separator by using the -Delimiter parameter and specifying the system's list separator.
+# Example: $separator = [System.Globalization.CultureInfo]::CurrentCulture.TextInfo.ListSeparator
+# Export-CSV -Path "output.csv" -Delimiter $separator
