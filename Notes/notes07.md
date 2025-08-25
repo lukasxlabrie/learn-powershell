@@ -1,34 +1,66 @@
-PowerShell Modules (v6 and newer)
+# PowerShell Modules (v6 and Newer)
 
-Modules: Only supported extension type in v6+, self-contained, easier to distribute.
+## Module Overview
+- Modules are the only supported extension type in PowerShell v6 and above.
+- They are self-contained, making them easier to distribute and manage.
+- Modules can include cmdlets, providers, functions, and other components.
 
-PowerShellGet: Built-in module for finding, downloading, installing, and updating modules from online repositories.
+## PowerShellGet
+- Built-in module for discovering, installing, updating, and managing modules from online repositories.
+- Functions similarly to Linux package managers like `rpm`, `yum`, and `apt-get`.
 
-Works like Linux package managers: rpm, yum, apt-get.
+## PowerShell Gallery
+- Official Microsoft-hosted repository: [https://powershellgallery.com](https://powershellgallery.com)
+- Contains community-contributed code. Microsoft does not verify, endorse, or maintain submissions.
+- Exercise caution before running third-party code.
 
-PowerShell Gallery: Official Microsoft-hosted online repository at https://powershellgallery.com
+## Module Discovery
+- Modules can be searched directly on the PowerShell Gallery website or via PowerShellGet commands.
+- Example: The `Az` module is used for Azure management.
 
-Contains community-contributed code (Microsoft does not produce, verify, or endorse).
+---
 
-Use caution before running code from others.
+# PowerShellGet Commands
 
-Azure module: Az
+| Command                | Description                                                                 |
+|------------------------|-----------------------------------------------------------------------------|
+| `Register-PSRepository`| Adds a repository URL. Default is `https://PowerShellGallery.com`. Can also register internal/private repositories. |
+| `Find-Module`          | Searches for modules. Supports wildcards (`*`), tags, and filters.          |
+| `Install-Module`       | Downloads and installs a module from a repository.                          |
+| `Update-Module`        | Updates a locally installed module to the latest version.                   |
 
-Search modules directly on the site or via PowerShellGet commands.
+For full documentation, visit [PowerShellGallery.com](https://PowerShellGallery.com)
 
-**PowerShellGet Commands (Module Management)**
+---
 
-* **Register-PSRepository**: Add the URL of a repository.
+# Default Module Locations
 
-  * `http://PowerShellGallery.com` is set up by default.
-  * Can register private/internal galleries for organization use.
+PowerShell automatically searches for modules in the following locations:
 
-* **Find-Module**: Search for modules in repositories.
+- Installation directory (e.g., `C:\Program Files\PowerShell`)
+- Shared system-wide folder (e.g., `C:\Program Files\WindowsPowerShell\Modules`)
+- User-specific folder (e.g., `C:\Users\<User>\Documents\PowerShell\Modules`)
 
-  * Supports wildcards `*`, tags, and other filters to narrow results.
+## Adding Custom Module Paths
 
-* **Install-Module**: Download and install a module from a repository.
+To include a custom path in the module search list:
 
-* **Update-Module**: Check if a local module is outdated and update to the latest version if needed.
+```powershell
+$env:PSModulePath += [System.IO.Path]::PathSeparator + 'C:\Scripts\myModules'
+```
 
-* PowerShellGet has additional commands — see [PowerShellGallery.com](http://PowerShellGallery.com) for documentation.
+This ensures PowerShell can locate your modules and enables features like:
+
+- `Get-Help` integration
+- Command auto-completion
+- Module discovery during execution
+
+---
+
+# Best Practices
+
+- Use product-specific prefixes (e.g., `Az`, `Sql`, `Dns`) to avoid naming conflicts and support multi-module environments.
+- Modules can also add providers, extending PowerShell’s capabilities.
+- Clear naming and structure help ensure compatibility and reduce confusion when multiple modules are in use.
+
+---
