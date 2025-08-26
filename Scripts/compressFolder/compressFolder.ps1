@@ -7,7 +7,7 @@ Write-Host "Starting the script to compress files into a ZIP archive..." -Foregr
 Get-Date
 
 # Define source files and destination ZIP
-$sourceFiles = @(".\Example1.txt", ".\Example2.txt")
+$sourceFiles = @(".\lunch07.txt")
 $zipPath = ".\ArchivedFiles.zip"
 
 Write-Host "Preparing to compress the following files:" -ForegroundColor Cyan
