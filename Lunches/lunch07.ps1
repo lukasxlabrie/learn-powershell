@@ -5,3 +5,6 @@ if (-not (Get-Module -ListAvailable -Name Az)) {
 
 # Add a custom module path to the PSModulePath environment variable
 $env:PSModulePath += [System.IO.Path]::PathSeparator + 'C:\Scripts/myModules'
+
+# Compress a folder into a zip file
+Compress-Archive -Path "C:\MyFolder" -DestinationPath "C:\MyFolder.zip"
