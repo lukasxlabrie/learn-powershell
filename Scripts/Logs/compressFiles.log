@@ -1,6 +1,6 @@
 ﻿**********************
 Windows PowerShell transcript start
-Start time: 20250826151625
+Start time: 20250826151948
 Username: LXL\lukas
 RunAs User: LXL\lukas
 Configuration Name: 
@@ -24,30 +24,12 @@ SerializationVersion: 1.1.0.1
 Transcript started, output file is C:\Users\lukas\OneDrive\Documents\learn-powershell\learn-powershell\Scripts\logs\compressFiles.log
 Starting the script to compress files into a ZIP archive...
 
-Tuesday, August 26, 2025 3:16:25 PM
+Tuesday, August 26, 2025 3:19:48 PM
 Preparing to compress the following files:
-.\Example1.txt
-.\Example2.txt
-PS>TerminatingError(Resolve-Path): "The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: Cannot find path 'C:\Users\lukas\OneDrive\Documents\learn-powershell\learn-powershell\scripts\compressFolder\Example1.txt' because it does not exist."
-PS>TerminatingError(): "The pipeline has been stopped."
->> TerminatingError(Compress-Archive): "The path '.\Example1.txt' either does not exist or is not a valid file system path."
-Compress-Archive : The path '.\Example1.txt' either does not exist or is not a valid file system path.
-At C:\Users\lukas\OneDrive\Documents\learn-powershell\learn-powershell\scripts\compressFolder\compressFolder.ps1:23 
-char:1
-+ Compress-Archive -Path $sourceFiles -DestinationPath $zipPath -Compre ...
-+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : InvalidArgument: (.\Example1.txt:String) [Compress-Archive], InvalidOperationException
-    + FullyQualifiedErrorId : ArchiveCmdletPathNotFound,Compress-Archive
-Compress-Archive : The path '.\Example1.txt' either does not exist or is not a valid file system path.
-At C:\Users\lukas\OneDrive\Documents\learn-powershell\learn-powershell\scripts\compressFolder\compressFolder.ps1:23 char:1
-+ Compress-Archive -Path $sourceFiles -DestinationPath $zipPath -Compre ...
-+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : InvalidArgument: (.\Example1.txt:String) [Compress-Archive], InvalidOperationException
-    + FullyQualifiedErrorId : ArchiveCmdletPathNotFound,Compress-Archive
-
+.\lunch07.txt
 Files compressed successfully into .\ArchivedFiles.zip
-Archive creation failed!
+Archive verified at .\ArchivedFiles.zip
 **********************
 Windows PowerShell transcript end
-End time: 20250826151630
+End time: 20250826151948
 **********************
