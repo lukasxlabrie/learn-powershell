@@ -1,26 +1,31 @@
 **PowerShell Help System – Mastery Guide**
 
 Mastering the help system is the key to becoming a PowerShell expert
+
 The help system is vital to building PowerShell skills
 It helps identify which commands to use based on the situation
 Shows how to properly run commands, which helps when troubleshooting errors
+
 Explains how commands relate to each other and fit into broader tasks
 
 You will need to use the help system regularly to complete exercises
+
 Always read the help section for each command to get used to its structure and usage
+
 Use the help system to learn proper syntax and parameter rules
 
 **Using the Help System**
 
 If local help is not installed, update it using:
 `Update-Help`
+
 Run this about once a month to stay current
 
 To save a local copy of help files:
 `Save-Help`
 
 To search help:
-`help <search term>`
+`help <search term>`G
 or
 `Get-Help <search term>`
 
