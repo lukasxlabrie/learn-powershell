@@ -1,0 +1,1 @@
+Get-NetFirewallRule | Select-Object
