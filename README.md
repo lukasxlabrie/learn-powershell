@@ -15,11 +15,11 @@ Repository Structure
 Repository Structure
 
 /
-Lunches/
-  Lunch01/         - Chapter 1 scripts and exercises
-  Lunch02/
+Lessons/
+  lesson01/         - Chapter 1 scripts and exercises
+  lesson02/
   ...
-  Lunch30/
+  lesson30/
 Notes/
   Notes01.md       - Personal notes for Lunch 1
   Notes02.md
