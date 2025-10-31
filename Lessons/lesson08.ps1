@@ -1,4 +1,5 @@
 # 1. cmdlet for producing a radnom numbe
+Get-Random
 
 # 2. cmdlet that displays current date/time
 
