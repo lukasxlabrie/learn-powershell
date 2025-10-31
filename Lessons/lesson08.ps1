@@ -2,8 +2,10 @@
 Get-Random
 
 # 2. cmdlet that displays current date/time
+Get-Date 
 
 # 3. the kind of object produced from the above
+# Property
 
 # 4. use cmdlet from task 2 to and Select-Object to get only today
 
