@@ -8,6 +8,7 @@ Get-Date
 # Property
 
 # 4. use cmdlet from task 2 to and Select-Object to get only today
+Get-Date |Select-Object -Property Day
 
 # 5. cmdlet to show you all the times in the directory
 
