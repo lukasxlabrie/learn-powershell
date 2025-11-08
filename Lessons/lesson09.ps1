@@ -14,3 +14,6 @@
 
    # to create a new secret vault
    Set-Secret -name mySecret -secret "P@ssw0rd!" -vault MyLocalVault
+    
+   # to retrieve the secret from the vault
+   Get-Secret -name mySecret -vault MyLocalVault
