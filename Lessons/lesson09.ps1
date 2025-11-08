@@ -9,4 +9,5 @@
    #supports it. Some will be local secret stores like the macOS Keychain, and others will
    #be cloud services like Azure Key Vault and HashiCorp Vault. Your goal is to grab this
    #module, store a secret in your secret store of choice, and then retrieve it. If you use a
-   #cloud-based secret
+   #cloud-based secret store, make sure to clean up any resources you create to avoid
+   #unnecessary charges.
