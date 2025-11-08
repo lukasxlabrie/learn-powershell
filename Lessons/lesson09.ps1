@@ -11,3 +11,6 @@
    #module, store a secret in your secret store of choice, and then retrieve it. If you use a
    #cloud-based secret store, make sure to clean up any resources you create to avoid
    #unnecessary charges.
+
+   # to create a new secret vault
+   Set-Secret -name mySecret -secret "P@ssw0rd!" -vault MyLocalVault
