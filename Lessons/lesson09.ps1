@@ -12,6 +12,9 @@
    #cloud-based secret store, make sure to clean up any resources you create to avoid
    #unnecessary charges.
 
+   # Register a local vault (only needed once)
+   Register-SecretVault -Name MyLocalVault -ModuleName Microsoft.PowerShell.SecretStore -DefaultVault
+
    # to create a new secret vault
    Set-Secret -name mySecret -secret "P@ssw0rd!" -vault MyLocalVault
     
