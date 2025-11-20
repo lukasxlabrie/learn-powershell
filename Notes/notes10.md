@@ -25,3 +25,13 @@ PowerShell uses a mechanism called **parameter binding** to connect the output o
 - PowerShell looks at the **property names** of the output object.
 - If a property name matches a parameter name in Command B, it binds them together.
 - This allows multiple parameters to be filled automatically, as long as the names match.
+
+### Checking Pipeline Input
+
+You can verify whether a parameter accepts pipeline input by viewing the full help for a cmdlet and checking the parameter details under the **Accept pipeline input** field.
+
+---
+
+### Custom Properties
+
+Custom properties are needed when objects were not originally designed for PowerShell. They allow you to extend or adapt those objects so they work properly within the PowerShell pipeline and scripting environment.
